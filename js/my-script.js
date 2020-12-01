@@ -2,20 +2,20 @@
 const body = document.querySelector("body")
 const themeBtn = document.querySelector("#theme-btn")
 const themeCheck = document.querySelector("#theme-check")
+const currentTheme = localStorage.getItem("theme") || "light"
 
-const storedTheme = localStorage.getItem("theme") || "light"
-if (storedTheme === "dark") {
+if (currentTheme === "dark") {
     themeCheck.checked = true
 }
 
-themeBtn.onclick = () => toggleTheme()
-
 function toggleTheme() {
-    const currentTheme = (themeCheck.checked) ? "dark" : "light"
-    body.className = currentTheme
-    localStorage.theme = currentTheme
+    const theme = (themeCheck.checked) ? "dark" : "light"
+    body.className = theme
+    localStorage.theme = theme
 }
+
 toggleTheme()
+themeBtn.onclick = () => toggleTheme()
 
 // calculator script
 class Calculator {
@@ -54,6 +54,7 @@ class Calculator {
         let computation
         const prev = parseFloat(this.previousOperand)
         const current = parseFloat(this.currentOperand)
+        if (isNaN(prev) || isNaN(current)) return
         switch (this.operation) {
             case "+":
                 computation = prev + current
@@ -70,7 +71,6 @@ class Calculator {
             default:
                 return
         }
-
         this.currentOperand = computation
         this.previousOperand = ""
         this.operation = undefined

@@ -1,3 +1,4 @@
+// base
 * {
 	margin: 0;
 	padding: 0;
@@ -27,7 +28,7 @@ body {
 	overflow: hidden;
 }
 
-// theme toggle button
+// theme toggle switch
 .theme-chooser {
 	grid-column: 1 / -1;
 	display: flex;
@@ -94,7 +95,7 @@ input:checked+.slider:before {
 	border-radius: 50%;
 }
 
-// output
+// output screen
 .output-screen {
 	grid-column: 1 / -1;
 	display: flex;
@@ -117,7 +118,7 @@ input:checked+.slider:before {
 	font-size: 2rem;
 }
 
-// keys
+// button keys
 .calculator-grid>button {
 	margin: 10px;
 	padding: 5px;
