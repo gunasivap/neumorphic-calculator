@@ -36,7 +36,8 @@ class Calculator {
     }
   
     appendNumber(number) {
-      if (number === '.' && this.currentOperand.includes('.')) return
+      console.log(this.currentOperand)
+      if (number === '.' && this.currentOperand.toString().includes('.')) return
       this.currentOperand = this.currentOperand.toString() + number.toString()
     }
   
@@ -62,7 +63,7 @@ class Calculator {
         case '-':
           computation = prev - current
           break
-        case '*':
+        case '×':
           computation = prev * current
           break
         case '÷':
